@@ -1,0 +1,6 @@
+---
+#Countdown config
+
+#Countdown time in seconds
+countdown_time: "60"
+...
