@@ -1,0 +1,13 @@
+name: Countdown
+main: Countdown\Main
+version: 1.0.0
+api: 2.0.0
+commands:
+ countdown:
+  description: "Countdown Commands & Info!"
+  usage: "/countdown"
+  permission: "countdown.command"
+ cd:
+  description: "Countdown Commands & Info!"
+  usage: "/countdown"
+  permission: "countdown.command"
