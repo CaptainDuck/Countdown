@@ -3,4 +3,8 @@
 
 #Countdown time in seconds
 countdown_time: "60"
+
+#Countdown
+broadcast_when_countdown_start: "true"
+countdown_broadcast_msg: "Countdown started! Starting in {COUNTDOWN_TIME}..
 ...
