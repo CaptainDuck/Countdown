@@ -9,6 +9,8 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\Server;
+use pocketmine\event\Event;
+use pocketmine\level\Level;
 
 class Main extends PluginBase implements Listener{
     
@@ -44,6 +46,9 @@ class Main extends PluginBase implements Listener{
             $count = $this->getConfig()->get("countdown_time");
             if($sender->hasPermission("countdown.start")){
                 $sender->sendMessage("Starting the countdown! The countdown starts in.." .$count. "seconds!");
+                if($config->get("broadcast_when_countdown_start") === true){
+                    $this->getServer()->broadcast($this->getConfig()->get("countdown_broadcast_msg"));
+                }
             }
         }
     }
