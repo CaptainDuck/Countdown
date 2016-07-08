@@ -2,9 +2,10 @@
 #Countdown config
 
 #Countdown time in seconds
-countdown_time: "60"
+countdown_time: "60" #Should be more than 45
 
 #Countdown
 broadcast_when_countdown_start: "true"
-countdown_broadcast_msg: "Countdown started! Starting in {COUNTDOWN_TIME}..
+countdown_broadcast_msg: "Countdown started! Starting in #countdown_time seconds!
+countdown_message: Countdown ending in.. #remaining time seconds!
 ...
