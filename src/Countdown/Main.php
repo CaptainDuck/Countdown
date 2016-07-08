@@ -41,15 +41,24 @@ class Main extends PluginBase implements Listener{
                         break;
                     }
             }
-        }
         if($args[0] == "start"){
             $count = $this->getConfig()->get("countdown_time");
             if($sender->hasPermission("countdown.start")){
-                $sender->sendMessage("Starting the countdown! The countdown starts in.." .$count. "seconds!");
-                if($config->get("broadcast_when_countdown_start") === true){
-                    $this->getServer()->broadcast($this->getConfig()->get("countdown_broadcast_msg"));
+                $senderLevel = $sender->getLevel()->getPlayers();
+                $count--;
+                    foreach($senderLevel as $player){
+                        if($this->getConfig()->get("broadcast_when_countdown_start") === true){
+                        $player->sendMessage($this->getConfig()->get("countdown_broadcast_msg"). $this->getConfig()->get("countdown_time"). " seconds!");
+                            if($count === 30){
+                                $player->sendMessage($this->getConfig()->get("countdown_message"). " 30 seconds!");
+                            }
+                            if($count === 0){
+                                $player->sendMessage($count. "Countdown ended!");
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-}
+}                           
