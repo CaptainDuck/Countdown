@@ -9,6 +9,7 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\Server;
+use pocketmine\utils\TextFormat as C;
 use pocketmine\event\Event;
 use pocketmine\level\Level;
 
