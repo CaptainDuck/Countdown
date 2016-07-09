@@ -29,7 +29,7 @@ class Main extends PluginBase implements Listener{
         $this->getLogger()->info("Countdown by CaptainDuck disabled! :o");
     }
     
-    public function onCommand(CommandSender $sender, Command $command, $label, array $args){
+    public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
         if($sender instanceof Player){
             switch($cmd->getName()){
                 case "countdown":
