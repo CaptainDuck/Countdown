@@ -30,26 +30,29 @@ class Main extends PluginBase implements Listener{
     }
     
     public function onCommand(CommandSender $sender, Command $command, $label, array $args){
-        if($sender instanceof Player){
-            switch($cmd->getName()){
-                case "countdown":
-                case "cd":
+        switch($cmd->getName()){
+            case "countdown":
+            case "cd":
+                if($sender instanceof Player){
                     if($sender->hasPermission("countdown.command")){
                         $sender->sendMessage(C::BLUE. C::ITALIC. C::BOLD. "Countdown Commands & Info");
                         $sender->sendMessage(C::WHITE. C::ITALIC. "/cdstart or /countdownstart -> Starts a countdown!");
                         return true;
                         break;
                     }
+                }
                 case "countdownstart":
                 case "cdstart":
-                    if($sender->hasPermisison("countdown.command.start")){
-                        $count = $this->getConfig()->get("countdown_time");
-                        if($sender->hasPermission("countdown.start")){
-                            $senderLevel = $sender->getLevel()->getPlayers();
-                            $count--;
-                            foreach($senderLevel as $player){
-                                if($this->getConfig()->get("broadcast_when_countdown_start") === true){
-                                    $player->sendMessage(C::WHITE. $this->getConfig()->get("countdown_broadcast_msg"). $this->getConfig()->get("countdown_time"). " seconds!");
+                    if($sender instanceof Player){
+                        if($sender->hasPermisison("countdown.command.start")){
+                            $count = $this->getConfig()->get("countdown_time");
+                            if($sender->hasPermission("countdown.start")){
+                                $senderLevel = $sender->getLevel()->getPlayers();
+                                $count--;
+                                foreach($senderLevel as $player){
+                                    if($this->getConfig()->get("broadcast_when_countdown_start") === true){
+                                        $player->sendMessage(C::WHITE. $this->getConfig()->get("countdown_broadcast_msg"). $this->getConfig()->get("countdown_time"). " seconds!");
+                                        
                                     if($count === 30){
                                         $player->sendMessage($this->getConfig()->get("countdown_message"). " 30 seconds!");
                                     }
