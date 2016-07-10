@@ -9,7 +9,6 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\Server;
-use pocketmine\utils\TextFormat as C;
 use pocketmine\event\Event;
 use pocketmine\level\Level;
 
@@ -30,7 +29,7 @@ class Main extends PluginBase implements Listener{
         $this->getLogger()->info("Countdown by CaptainDuck disabled! :o");
     }
     
-    public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
+    public function onCommand(CommandSender $sender, Command $command, $label, array $args){
         if($sender instanceof Player){
             switch($cmd->getName()){
                 case "countdown":
@@ -38,11 +37,7 @@ class Main extends PluginBase implements Listener{
                     if($sender->hasPermission("countdown.command")){
                         $sender->sendMessage(C::BLUE."Countdown Commands & Info");
                         $sender->sendMessage(C::WHITE."/cd or /countdown start -> Starts a countdown!");
-                        return true;
-                        break;
-                    }
-            }
-        if($args[0] == "start"){
+                        if($args[0] == "start"){
             $count = $this->getConfig()->get("countdown_time");
             if($sender->hasPermission("countdown.start")){
                 $senderLevel = $sender->getLevel()->getPlayers();
@@ -55,11 +50,15 @@ class Main extends PluginBase implements Listener{
                             }
                             if($count === 0){
                                 $player->sendMessage($count. "Countdown ended!");
+                                return true;
+                                break;
                             }
                         }
                     }
-                }
+            }
+                        }
+                    }
             }
         }
     }
-}                           
+}
