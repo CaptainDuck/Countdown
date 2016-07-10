@@ -7,7 +7,7 @@ commands:
   description: "Countdown Commands & Info!"
   usage: "/countdown"
   permission: "countdown.command"
- cd:
-  description: "Countdown Commands & Info!"
-  usage: "/countdown"
-  permission: "countdown.command"
+ cdstart:
+  description: "Start a countdown!"
+  usage: "/cdstart"
+  permission: "countdown.start"
