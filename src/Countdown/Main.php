@@ -29,23 +29,21 @@ class Main extends PluginBase implements Listener{
         $this->getLogger()->info("Countdown by CaptainDuck disabled! :o");
     }
     
-    public function onCommand(CommandSender $sender, Command $command, $label, array $args){
+    public function onCommand(CommandSender $sender,Command $cmd,$label,array $args){
         switch($cmd->getName()){
             case "countdown":
             case "cd":
                 if($sender instanceof Player){
                     if($sender->hasPermission("countdown.command")){
                         $sender->sendMessage(C::BLUE. C::ITALIC. C::BOLD. "Countdown Commands & Info");
-                        $sender->sendMessage(C::WHITE. C::ITALIC. "/cdstart or /countdownstart -> Starts a countdown!");
+                        $sender->sendMessage(C::WHITE. C::ITALIC. "/cdstart -> Starts a countdown!");
                         return true;
                         break;
                     }
                 }
-                case "countdownstart":
                 case "cdstart":
                     if($sender instanceof Player){
-                        if($sender->hasPermisison("countdown.command.start")){
-                            $count = $this->getConfig()->get("countdown_time");
+                        $count = $this->getConfig()->get("countdown_time");
                             if($sender->hasPermission("countdown.start")){
                                 $senderLevel = $sender->getLevel()->getPlayers();
                                 $count--;
