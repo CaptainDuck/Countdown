@@ -57,13 +57,12 @@ class Main extends PluginBase implements Listener{
                                     if($count === 0){
                                         $player->sendMessage($count. "Countdown ended!");
                                     }
-                                    return true;
-                                    break;
+                                    }
                                 }
                             }
-                        }
                     }
-            }
+                                    return true;
+                                    break;
         }
     }
 }
