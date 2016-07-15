@@ -7,7 +7,9 @@ commands:
   description: "Countdown Commands & Info!"
   usage: "/countdown"
   permission: "countdown.command"
+  aliases: [cd, countd, downc]
  cdstart:
   description: "Start a countdown!"
   usage: "/cdstart"
   permission: "countdown.start"
+  aliases: [countdownstart, countdstart, cds]
