@@ -54,6 +54,7 @@ class Main extends PluginBase implements Listener{
                                     }
                                 }else{
                                     $player->sendTIP(C::BLUE. C::ITALIC. "Countdown started!");
+                                    return true;
                                 }
                             }
                         }
